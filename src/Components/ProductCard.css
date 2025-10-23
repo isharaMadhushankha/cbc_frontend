@@ -1,0 +1,19 @@
+.prodductCard{
+    width: 400px;
+    height: 500px;
+    border-radius: 5px;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.productimage{
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    padding-left:30px;
+    padding-top: 30px;
+    border-radius: 5px 5px 
+}
