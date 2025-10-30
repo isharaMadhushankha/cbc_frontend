@@ -1,15 +1,23 @@
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import ProductCard from './Components/ProductCard.jsx'
+import AdminPage from './Pages/AdminPage.jsx'
+import HomePage from './Pages/HomePage.jsx'
 
 function App() {
   
   return (
-    <>
-    <ProductCard name="bluestone" dis="This is a description of the product." price="$500" img="https://us.123rf.com/450wm/bemphoto/bemphoto2303/bemphoto230301011/200261985-red-ruby-stone-texture-background-ai-generated-image.jpg"/>
-    <ProductCard name="redtone" dis="This is a description of the product." price="$600" img="https://us.123rf.com/450wm/bemphoto/bemphoto2303/bemphoto230301011/200261985-red-ruby-stone-texture-background-ai-generated-image.jpg"/>
-    </>
+    <BrowserRouter>
+      <div className='w-full h-[100vh] bg-red-600'>
+          <Routes path="/">
+            <Route path='/' element={<HomePage/>}/>
+            <Route path='/register' element={<h1>register</h1>}/>
+            <Route path='/admin/*' element={<AdminPage/>}/>
+          </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
+
 
 export default App
