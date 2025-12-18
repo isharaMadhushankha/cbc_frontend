@@ -1,22 +1,25 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import MediaUpload from "../../utils/MediaUpload";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 const AdminUpdateProduct = () => {
-  const [productId, setproductId] = useState("");
-  const [name, setname] = useState("");
-  const [altName, setaltName] = useState("");
-  const [discription, setdiscription] = useState("");
+  const location = useLocation(); // use to check data come with adminproduct page when click edit button
+  console.log(location);
+
+  const [productId, setproductId] = useState(location.state.productId);
+  const [name, setname] = useState(location.state.name);
+  const [altName, setaltName] = useState(location.state.altName.join(","));
+  const [discription, setdiscription] = useState(location.state.discription);
   const [images, setimages] = useState([]);
-  const [price, setprice] = useState(0);
-  const [labeledPrice, setlabeledPrice] = useState(0);
-  const [catagory, setcatagory] = useState("cream");
-  const [stock, setStock] = useState(0);
+  const [price, setprice] = useState(location.state.price);
+  const [labeledPrice, setlabeledPrice] = useState(location.state.labeledPrice);
+  const [catagory, setcatagory] = useState(location.state.catagory);
+  const [stock, setStock] = useState(location.state.setStock);
   const navigate = useNavigate();
 
-  async function addProduct() {
+  async function updateProduct() {
     const token = localStorage.getItem("token");
     if (token == null) {
       navigate("/login");
@@ -27,7 +30,10 @@ const AdminUpdateProduct = () => {
       promises[i] = MediaUpload(images[i])
     }
     try{
-       const ulrl = await Promise.all(promises);
+       let ulrl = await Promise.all(promises);// if change add that images url
+       if(ulrl.length==0){
+        ulrl = location.state.images // if not change use old url
+       }
        const alternateName = altName.split(",");
        
        const product = {
@@ -43,12 +49,12 @@ const AdminUpdateProduct = () => {
       
        }
 
-       axios.post(import.meta.env.VITE_API_URL+"/api/product",product,{ //1.url ,  2.what data will send   3.token
+       axios.put(import.meta.env.VITE_API_URL+"/api/product/"+productId,product,{ //1.url ,  2.what data will send   3.token
        headers:{
           Authorization : "Bearer "+ token
        }
        })
-       toast.success("product added successfully");
+       toast.success("product updated successfully");
        navigate("/admin/products");
 
     // console.log(ulrl);
@@ -71,6 +77,7 @@ const AdminUpdateProduct = () => {
             Product ID
           </label>
           <input
+            disabled
             placeholder="Enter product ID (e.g. PRD001)"
             value={productId}
             onChange={(e) => {
@@ -238,7 +245,7 @@ const AdminUpdateProduct = () => {
 
           <button
             type="button"
-            onClick={addProduct}
+            onClick={updateProduct}
             className="px-6 py-2 rounded-lg bg-accent/80 text-black  hover:bg-accent/80  hover:border-accent hover:border-[2px] shadow-sm"
           >
             Submit
