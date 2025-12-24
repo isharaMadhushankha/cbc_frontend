@@ -32,7 +32,7 @@ export function addToCart(product,quantity){
             name: product.name,
             price: product.price,
             labeledPrice:product.labeledPrice,
-            quantity:product.quantity,
+            quantity:quantity,
             images:product.images
         }
         cart.push(cartItem);
@@ -50,7 +50,21 @@ export function addToCart(product,quantity){
             existingItem.quantity = newQuantity
         }
     }
-
+ 
     localStorage.setItem("cart",JSON.stringify(cart));
+    
 
+}
+
+export function getTotal(){
+    const cart = LoadCart();
+    let total = 0;
+
+    cart.forEach(
+        (item)=>{
+            total+= item.price * item.quantity;
+        }
+        
+    )
+    return total;
 }

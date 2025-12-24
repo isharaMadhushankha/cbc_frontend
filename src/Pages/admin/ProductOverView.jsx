@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
-import { useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import Loader from '../../Components/Loader';
 import ImageSlider from '../../Components/ImageSlider';
+import { addToCart, LoadCart } from '../../utils/Cart';
 
 const ProductOverView = () => {
     // const location = useLocation();// use to get the product detials
@@ -60,8 +61,20 @@ const ProductOverView = () => {
                   </div>: <p  className='text-xl text-accent'>{product.price}</p>
                 }
                 <div className='flex gap-4 mt-6 '>
-                  <button className='w-[200px] h-[40px] bg-accent'>Add to cart</button>
-                  <button className='w-[200px] h-[40px] border-accent border'>By Now</button>
+                  <button onClick={()=>{
+                      addToCart(product,1)
+                      toast.success("Added to cart")
+                  }} className='w-[200px] h-[40px] bg-accent'>Add to cart</button>
+                  <Link to={'/checkout'} state={
+                    [{
+                      images:product.images,
+                      productId:product.productId,
+                      name:product.name,
+                      price:product.price,
+                      labeledPrice:product.labeledPrice,
+                      quantity:1
+                    }]
+                  } className='w-[200px] h-[40px] border-accent border'>By Now</Link>
                 </div>
 
                 </div>

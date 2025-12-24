@@ -3,6 +3,8 @@ import Headers from '../Components/Headers'
 import { Route, Routes } from 'react-router-dom'
 import ProductPage from './admin/ProductPage'
 import ProductOverView from './admin/ProductOverView'
+import CartPage from './admin/CartPage'
+import Checkout from './admin/Checout'
 
 const HomePage = () => {
   return (
@@ -15,6 +17,8 @@ const HomePage = () => {
         <Route path='/contact' element ={<h1> contact</h1>}/>
         <Route path='/*' element= {<h1>404 Not found</h1>}/>
         <Route path='/overview/:id' element={<ProductOverView/>}/>
+        <Route path='/cart' element ={<CartPage/>}/>
+        <Route path='/checkout' element ={<Checkout/>}/>
       </Routes>
     </div>
   )

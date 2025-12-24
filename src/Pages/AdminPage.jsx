@@ -5,6 +5,8 @@ import { FaUsers } from "react-icons/fa6";
 import AdminProductPage from "./admin/AdminProductPage";
 import AdminAddNewProduct from "./admin/AdminAddNewProduct";
 import AdminUpdateProduct from "./admin/adminUpdateProduct";
+import AdminOtdersPage from "./admin/AdminOrdersPage";
+import AdminOrdersPage from "./admin/AdminOrdersPage";
 
 const AdminPage = () => {
   const location = useLocation();
@@ -37,7 +39,7 @@ const AdminPage = () => {
             Dashboard
           </Link>
 
-          <Link to="/admin/order" className={menuItemStyle("/admin/order")}>
+          <Link to="/admin/orders" className={menuItemStyle("/admin/orders")}>
             <FaCartArrowDown className="text-lg" />
             Orders
           </Link>
@@ -61,9 +63,10 @@ const AdminPage = () => {
           <Routes>
             <Route path="/" element={<h1 className="text-2xl font-semibold text-secondery">Dashboard</h1>} />
             <Route path="/products" element={<AdminProductPage />} />
-            <Route path="/orders" element={<h1 className="text-2xl font-semibold text-secondery">Orders</h1>} />
+            <Route path="/orders" element={<AdminOrdersPage/>} />
             <Route path="/add-product" element={<AdminAddNewProduct/>}/>
             <Route path="/update-product" element={<AdminUpdateProduct/>}/>
+           
           </Routes>
 
         </div>
