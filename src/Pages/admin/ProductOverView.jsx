@@ -31,16 +31,17 @@ const ProductOverView = () => {
   },[])
     
   return (
-    <div className='w-full h-[calc(100vh-70px)] flex text-secondery'>
+    <div className='w-full lg:h-[calc(100vh-100px)] flex text-secondery  justify-center items-center '>
         {
             state == "Loading" && <Loader/>
         }
         {
-            state =="success" && ( <div className='w-full h-full flex flex-row'>
-                <div className='w-[50%] h-full flex justify-center items-center'>
-                    <ImageSlider images={product.images}/>
+            state =="success" && ( <div className='w-full h-full flex flex-col pb-6 lg:flex-row '>
+                <h1 className='text-2xl font-bold text-center pt-2 lg:hidden'>{product.name}</h1>
+                <div className='py-4 w-full lg:w-[50%] h-full flex justify-center px-4 '>
+                    <ImageSlider className='w-full h-full flex  ' images={product.images}/>
                 </div>
-                <div className='w-[50%] h-full  flex flex-col items-center p-6'>
+                <div className='w-full lg:w-[50%]  flex flex-col  items-center py-6 px-[20px]'>
                 <span>{product.productId}</span>
                 <h1 className='text-2xl font-bold text-center '>{product.name}
                   {
@@ -60,7 +61,7 @@ const ProductOverView = () => {
                     <p className='line-through text-secondery/80'>LKR : {product.labeledPrice.toFixed(2)}</p>
                   </div>: <p  className='text-xl text-accent'>{product.price}</p>
                 }
-                <div className='flex gap-4 mt-6 '>
+                <div className='flex gap-4 mt-6 w-full justify-center'>
                   <button onClick={()=>{
                       addToCart(product,1)
                       toast.success("Added to cart")
@@ -74,7 +75,7 @@ const ProductOverView = () => {
                       labeledPrice:product.labeledPrice,
                       quantity:1
                     }]
-                  } className='w-[200px] h-[40px] border-accent border'>By Now</Link>
+                  } className='w-[200px] h-[40px] border-accent border text-center justify-center items-center flex'>By Now</Link>
                 </div>
 
                 </div>
