@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa";
 import { TiThMenu } from "react-icons/ti";
+import axios from "axios";
 
 const Headers = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -24,7 +25,7 @@ const Headers = () => {
           />
         </div>
         {isSidebarOpen && (
-          <div className="fixed top-0 left-0 w-full  h-screen bg-[#00000050] z-100 flex ">
+          <div className="fixed top-0 left-0 w-full h-screen bg-black/50 z-[100] flex backdrop-blur-sm">
             <div className="w-[250px] bg-primary h-full">
               <div className="w-full h-[70px] bg-accent flex flex-row justify-center items-center gap-[30px] ">
                 <TiThMenu
@@ -42,7 +43,7 @@ const Headers = () => {
                 </div>
               </div>
               <div className="w-full h-full flex flex-col  gap-5 ps-6 pt-4 ">
-                <a href="/"  className="hover:text-secondery/70">
+                <a href="/" className="hover:text-secondery/70">
                   Home
                 </a>
                 <a href="/product" className="hover:text-secondery/70">
@@ -73,6 +74,7 @@ const Headers = () => {
           </Link>
         </div>
       </div>
+      <div className="bg-red-500 ">{/* {/het wada krnna} */}</div>
       <Link to="/cart" className="flex justify-center items-center pe-7">
         <FaCartArrowDown className="lg:text-2xl hidden lg:flex text-white hover:text-secondery/70" />
       </Link>

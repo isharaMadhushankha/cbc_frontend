@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ const Login = () => {
   }
 
   return (
-    <div className="h-screen w-full bg-[url('bg3.jpg')] bg-cover bg-center flex " style={{ fontFamily: "'Poppins', sans-serif" }}>
+    <div className="h-screen w-full bg-[url('bg3.jpg')] bg-cover bg-center flex ">
 
       {/* Left side branding */}
       <div className="w-1/2 h-full flex flex-col items-center justify-center bg-secondery/40 backdrop-blur-xl">
@@ -81,7 +81,7 @@ const Login = () => {
           </p>
 
           <p className="text-white/60 text-sm -mt-4">
-            New to CBC? <span className="text-accent cursor-pointer hover:underline">Create an account</span>
+            New to CBC? <Link to="/register" className="text-accent cursor-pointer hover:underline font-medium">Create an account</Link>
           </p>
 
         </div>

@@ -31,8 +31,8 @@ function Productdeletefunction(props) {
   }
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-full bg-[#00000050] z-100 flex items-center justify-center">
-      <div className="w-[500px] h-[200px] gap-3 bg-primary flex flex-col justify-center items-center relative">
+    <div className="fixed left-0 top-0 h-screen w-full bg-black/60 z-[100] flex items-center justify-center backdrop-blur-sm">
+      <div className="w-[90%] max-w-[500px] bg-primary p-10 rounded-2xl shadow-2xl flex flex-col justify-center items-center relative border border-secondery/10">
         <button
           onClick={close}
           className="absolute right-[-42px] top-[-42px] w-[40px] h-[40px] bg-red-500 rounded-full text-white hover:bg-red-500"
