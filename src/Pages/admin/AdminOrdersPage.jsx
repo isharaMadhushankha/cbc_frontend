@@ -108,7 +108,7 @@ const AdminOrdersPage = () => {
                 </label>
 
                 <span
-                  className={`px-3 py-1 text-xs font-semibold rounded-full border ${statusStyle(orderStatus)}`}
+                  className={`inline-block w-[90px] px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border text-center ${statusStyle(orderStatus)}`}
                 >
                   {orderStatus}
                 </span>
@@ -223,7 +223,7 @@ const AdminOrdersPage = () => {
                   <td>${item.total}</td>
                   <td>
                     <span
-                      className={`px-3 py-1 text-xs font-semibold rounded-full border ${statusStyle(item.status)}`}
+                      className={`inline-block w-[90px] px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border text-center ${statusStyle(item.status)}`}
                     >
                       {item.status}
                     </span>

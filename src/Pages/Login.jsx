@@ -17,9 +17,13 @@ const Login = () => {
         password: password,
       }
     );
-    localStorage.setItem("token",response.data.token);
+    localStorage.setItem("token", response.data.token);
+    localStorage.setItem("user", JSON.stringify(response.data.User));
+    
+    // Dispatch custom event to update navbar instantly
+    window.dispatchEvent(new Event("userUpdated"));
+
     toast.success("Login successfull");
-    console.log(response.data);
     const user = response.data.User;
     if(user.role=="admin"){
         navigate("/admin")

@@ -22,41 +22,40 @@ const AdminAddNewProduct = () => {
       navigate("/login");
       return;
     }
-    const promises = []
-    for (let i =0;i<images.length;i++){
-      promises[i] = MediaUpload(images[i])
+    const promises = [];
+    for (let i = 0; i < images.length; i++) {
+      promises[i] = MediaUpload(images[i]);
     }
-    try{
-       const ulrl = await Promise.all(promises);
-       const alternateName = altName.split(",");
-       
-       const product = {
-        productId : productId,
-        name:name,
-        altName:alternateName,
-        discription:discription,
-        images:ulrl,
-        price:price,
-        labeledPrice:labeledPrice,
-        catagory:catagory,
-        stock:stock
-      
-       }
+    try {
+      const ulrl = await Promise.all(promises);
+      const alternateName = altName.split(",");
 
-       axios.post(import.meta.env.VITE_API_URL+"/api/product",product,{ //1.url ,  2.what data will send   3.token
-       headers:{
-          Authorization : "Bearer "+ token
-       }
-       })
-       toast.success("product added successfully");
-       navigate("/admin/products");
+      const product = {
+        productId: productId,
+        name: name,
+        altName: alternateName,
+        discription: discription,
+        images: ulrl,
+        price: price,
+        labeledPrice: labeledPrice,
+        catagory: catagory,
+        stock: stock,
+      };
 
-    // console.log(ulrl);
-    }catch{
-      toast.error("An error occorred")
+      axios.post(import.meta.env.VITE_API_URL + "/api/product", product, {
+        //1.url ,  2.what data will send   3.token
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      toast.success("product added successfully");
+      navigate("/admin/products");
+
+      // console.log(ulrl);
+    } catch {
+      toast.error("An error occorred");
     }
   }
-
 
   return (
     <div className="w-full h-full flex justify-center items-start p-8 bg-primary">
@@ -208,6 +207,9 @@ const AdminAddNewProduct = () => {
             <option value="cream">Cream</option>
             <option value="lotion">Lotion</option>
             <option value="serum">Serum</option>
+            <option value="Makeup">Makeup</option>
+            <option value="Skincare">Skincare</option>
+            <option value="Haircare">Haircare</option>
           </select>
         </div>
 
