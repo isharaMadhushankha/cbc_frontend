@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { FaChartBar, FaCartArrowDown, FaBoxOpen, FaCog, FaSignOutAlt } from "react-icons/fa";
+import { FaStore } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
-import { FiMessageSquare } from "react-icons/fi";
+import { FiMessageSquare, FiMessageCircle } from "react-icons/fi";
 import AdminProductPage from "./admin/AdminProductPage";
 import AdminAddNewProduct from "./admin/AdminAddNewProduct";
 import AdminUpdateProduct from "./admin/adminUpdateProduct";
@@ -11,6 +12,8 @@ import AdminUsersPage from "./admin/AdminUsersPage";
 import AdminDashboard from "./admin/AdminDashboard";
 import AdminInquiries from "./admin/AdminInquiries";
 import AdminSettings from "./admin/AdminSettings";
+import AdminConsultations from "./admin/AdminConsultations";
+import AdminSellerRequests from "./admin/AdminSellerRequests";
 import toast from "react-hot-toast";
 import axios from "axios";
 import Loader from "../Components/Loader";
@@ -97,6 +100,16 @@ const AdminPage = () => {
             Inquiries
           </Link>
 
+          <Link to="/admin/consultations" className={menuItemStyle("/admin/consultations")}>
+            <FiMessageCircle className="text-lg" />
+            Consultations
+          </Link>
+
+          <Link to="/admin/seller-requests" className={menuItemStyle("/admin/seller-requests")}>
+            <FaStore className="text-lg" />
+            Seller Requests
+          </Link>
+
           <div className="mt-auto border-t border-secondery/10 pb-4">
             <Link to="/admin/settings" className={menuItemStyle("/admin/settings")}>
               <FaCog className="text-lg" />
@@ -131,6 +144,8 @@ const AdminPage = () => {
             <Route path="/orders" element={<AdminOrdersPage />} />
             <Route path="/users" element={<AdminUsersPage />} />
             <Route path="/inquiries" element={<AdminInquiries />} />
+            <Route path="/consultations" element={<AdminConsultations />} />
+            <Route path="/seller-requests" element={<AdminSellerRequests />} />
             <Route path="/settings" element={<AdminSettings />} />
             <Route path="/add-product" element={<AdminAddNewProduct />} />
             <Route path="/update-product" element={<AdminUpdateProduct />} />

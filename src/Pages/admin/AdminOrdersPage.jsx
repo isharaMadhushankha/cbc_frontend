@@ -27,6 +27,7 @@ const AdminOrdersPage = () => {
   const [ismodelopen, setismodelopen] = useState(false);
   const [selectedorder, setselectedorder] = useState(null);
   const [orderStatus, setorderStatus] = useState("");
+  const [trackingId, setTrackingId] = useState("");
 
   const navigate = useNavigate();
 
@@ -58,7 +59,7 @@ const AdminOrdersPage = () => {
         import.meta.env.VITE_API_URL +
           "/api/Orders/status/" +
           selectedorder.orderId,
-        { status: orderStatus },
+        { status: orderStatus, trackingId: trackingId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -101,32 +102,47 @@ const AdminOrdersPage = () => {
             </div>
 
             {/* Status Section */}
-            <div className="mb-6">
-              <div className="flex items-center justify-between mb-2">
-                <label className="font-semibold text-secondery">
-                  Order Status
-                </label>
-
-                <span
-                  className={`inline-block w-[90px] px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border text-center ${statusStyle(orderStatus)}`}
+            <div className="grid grid-cols-2 gap-6 mb-6">
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="font-semibold text-secondery text-xs uppercase tracking-wider">
+                    Order Status
+                  </label>
+                  <span
+                    className={`inline-block w-[80px] px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded-full border text-center ${statusStyle(orderStatus)}`}
+                  >
+                    {orderStatus}
+                  </span>
+                </div>
+                <select
+                  value={orderStatus}
+                  onChange={(e) => setorderStatus(e.target.value)}
+                  className="w-full border rounded-lg px-4 py-2 bg-white text-sm
+                             focus:outline-none focus:ring-2 focus:ring-accent
+                             transition shadow-sm"
                 >
-                  {orderStatus}
-                </span>
+                  <option value="pending">Pending</option>
+                  <option value="processing">Processing</option>
+                  <option value="shipped">Shipped</option>
+                  <option value="delivered">Delivered</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
               </div>
 
-              <select
-                value={orderStatus}
-                onChange={(e) => setorderStatus(e.target.value)}
-                className="w-full border rounded-lg px-4 py-2 bg-white
-                           focus:outline-none focus:ring-2 focus:ring-accent
-                           transition shadow-sm"
-              >
-                <option value="pending">Pending</option>
-                <option value="processing">Processing</option>
-                <option value="shipped">Shipped</option>
-                <option value="delivered">Delivered</option>
-                <option value="cancelled">Cancelled</option>
-              </select>
+              <div>
+                <label className="block font-semibold text-secondery text-xs uppercase tracking-wider mb-2">
+                  Tracking Number (Optional)
+                </label>
+                <input 
+                  type="text"
+                  value={trackingId}
+                  onChange={(e) => setTrackingId(e.target.value)}
+                  placeholder="e.g. CBC-TRK-12345"
+                  className="w-full border rounded-lg px-4 py-2 bg-white text-sm
+                             focus:outline-none focus:ring-2 focus:ring-accent
+                             transition shadow-sm"
+                />
+              </div>
             </div>
 
             {/* Items Table */}
@@ -212,6 +228,7 @@ const AdminOrdersPage = () => {
                   onClick={() => {
                     setselectedorder(item);
                     setorderStatus(item.status);
+                    setTrackingId(item.trackingId || "");
                     setismodelopen(true);
                   }}
                 >

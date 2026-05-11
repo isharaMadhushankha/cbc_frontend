@@ -27,7 +27,7 @@ const About = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/5 text-[15rem] font-black pointer-events-none select-none tracking-tighter z-0 -rotate-12">
               CBC
             </div>
-            
+
             <div className="absolute w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
             <div className="relative animate-float z-10">
               <img
@@ -66,16 +66,23 @@ const About = () => {
             </p>
           </div>
           <div className="relative group">
-            <div className="absolute inset-0 bg-accent/10 rounded-3xl rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
-            <img
-              src="/about-img.jpg"
-              alt="Skincare routine"
-              className="relative w-full h-[500px] object-cover rounded-3xl shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
-              onError={(e) => {
-                e.target.src =
-                  "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1000&auto=format&fit=crop";
-              }}
-            />
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-secondery/70 to-secondery rounded-3xl rotate-3 group-hover:rotate-0 transition-transform duration-500 shadow-2xl"></div>
+            <div className="relative w-full h-[500px] rounded-3xl transition-transform duration-500 group-hover:-translate-y-2 flex items-center justify-center p-8 overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.1) 25%, rgba(0, 0, 0, 0.4) 100%)",
+                backdropFilter: "blur(10px)"
+              }}>
+              {/* Premium gradient decorative elements */}
+              <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-accent/20 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 animate-pulse"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/4"></div>
+              <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-gradient-to-bl from-accent/10 to-transparent rounded-full blur-2xl"></div>
+              
+              <img
+                src="/cbc_drop.png"
+                alt="CBC Drop Product"
+                className="relative w-64 h-auto object-contain drop-shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_20px_40px_rgba(139,92,246,0.4)]"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -142,25 +149,29 @@ const About = () => {
             {/* Inner decorative elements */}
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-accent/10 to-transparent pointer-events-none"></div>
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000"></div>
-            
+
             <div className="relative z-10 text-center space-y-10">
               <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-                Experience the <br/>
-                <span className="text-accent italic drop-shadow-[0_0_20px_rgba(255,144,19,0.4)]">Glow</span> Today
+                Experience the <br />
+                <span className="text-accent italic drop-shadow-[0_0_20px_rgba(255,144,19,0.4)]">
+                  Glow
+                </span>{" "}
+                Today
               </h2>
               <p className="text-primary/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                Join thousands of customers who have transformed their skin with Crystal Beauty Clear. Your journey to radiant skin begins here.
+                Join thousands of customers who have transformed their skin with
+                Crystal Beauty Clear. Your journey to radiant skin begins here.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-6">
-                <Link 
-                  to="/product" 
+                <Link
+                  to="/product"
                   className="px-12 py-5 bg-accent hover:bg-accent/90 text-white rounded-2xl font-bold text-lg transition-all transform hover:scale-105 active:scale-95 shadow-[0_20px_40px_rgba(255,144,19,0.3)] hover:shadow-[0_25px_50px_rgba(255,144,19,0.5)] flex items-center justify-center"
                 >
                   Explore Collection
                 </Link>
-                <Link 
-                  to="/about"
+                <Link
+                  to="/philosophy"
                   className="px-12 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold text-lg transition-all backdrop-blur-md flex items-center justify-center"
                 >
                   Our Philosophy

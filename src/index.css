@@ -21,6 +21,11 @@
   .animate-float {
     animation: float 4s ease-in-out infinite;
   }
+
+  .font-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    color: transparent;
+  }
 }
 
 @keyframes fadeIn {
@@ -45,4 +50,35 @@
 
 body {
   @apply bg-primary;
+}
+
+/* Custom Elegant Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 68, 67, 0.1);
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF9013;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(51, 68, 67, 0.1);
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(51, 68, 67, 0.2);
 }

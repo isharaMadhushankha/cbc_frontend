@@ -34,19 +34,19 @@ const Home = () => {
   return (
     <div className="w-full flex flex-col">
       {/* ... Hero Section code ... */}
-      <section className="w-full h-[600px] bg-secondery flex items-center px-10 relative overflow-hidden">
+      <section className="w-full h-[600px] bg-secondery flex items-start pt-10 px-10 relative overflow-hidden">
         {/* Hero Section Content */}
         <div className="z-20 max-w-3xl text-white relative">
-          <div className="space-y-2 mb-8">
+          <div className="space-y-2 mb-4">
             <h2 className="text-accent font-bold tracking-[0.3em] uppercase text-xs lg:text-sm animate-fadeIn">Premium Skincare</h2>
             <h1 className="text-5xl lg:text-7xl font-bold leading-[1] animate-fadeIn">
-              Crystal <br/>
-              <span className="text-accent italic drop-shadow-[0_0_20px_rgba(255,144,19,0.5)]">Beauty</span> <br/>
+              Crystal <br />
+              <span className="text-accent italic drop-shadow-[0_0_20px_rgba(255,144,19,0.5)]">Beauty</span> <br />
               Clear
             </h1>
           </div>
-          <p className="text-lg lg:text-xl text-primary/70 mb-10 max-w-lg leading-relaxed animate-fadeIn delay-200">
-            Discover your natural glow with our meticulously curated collection. 
+          <p className="text-lg lg:text-xl text-primary/70 mb-4 max-w-lg leading-relaxed animate-fadeIn delay-200">
+            Discover your natural glow with our meticulously curated collection.
             Pure ingredients for a flawless, crystal-clear transformation.
           </p>
           <Link
@@ -61,7 +61,7 @@ const Home = () => {
         <div className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] z-10 animate-float hidden lg:block">
           <div className="relative w-full h-full flex items-center justify-center">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/5 text-[15rem] font-black pointer-events-none select-none tracking-tighter z-0 -rotate-12">
-               CBC
+              CBC
             </div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/20 rounded-full blur-[100px]"></div>
             <img
@@ -76,228 +76,276 @@ const Home = () => {
         <div className="absolute left-[-5%] bottom-[-5%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px]"></div>
       </section>
 
-      {/* Featured Products */}
-      <section className="py-16 px-10 bg-primary">
-        <div className="flex justify-between items-end mb-10">
-          <div>
-            <h2 className="text-3xl font-bold text-secondery">
-              Featured Products
-            </h2>
-            <div className="w-20 h-1 bg-accent mt-2"></div>
+      {/* Featured Products Section - Premium Grid */}
+      <section className="py-24 px-10 bg-primary/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="space-y-4">
+              <h5 className="text-accent font-black tracking-[0.3em] uppercase text-xs">Our Collection</h5>
+              <h2 className="text-4xl lg:text-5xl font-bold text-secondery">
+                Featured <span className="text-accent italic font-serif">Products</span>
+              </h2>
+            </div>
+            <Link
+              to="/product"
+              className="group text-secondery font-bold flex items-center gap-2 hover:text-accent transition-colors"
+            >
+              Explore All <div className="w-8 h-8 rounded-full bg-secondery group-hover:bg-accent flex items-center justify-center text-white transition-all"><FaArrowRight size={12} /></div>
+            </Link>
           </div>
-          <Link
-            to="/product"
-            className="text-accent font-medium hover:underline flex items-center gap-1"
-          >
-            View All <FaArrowRight className="text-xs" />
-          </Link>
-        </div>
 
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((product) => (
-              <ProductCard key={product.productId} product={product} />
-            ))}
-          </div>
-        )}
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+              {products.map((product) => (
+                <ProductCard key={product.productId} product={product} />
+              ))}
+            </div>
+          )}
+        </div>
       </section>
 
       {/* Dynamic Ad Banner - Added between Products and Benefits */}
       {config?.middleAdBanner && (
         <section className="w-full px-10 mb-16 animate-fadeIn">
           <div className="w-full max-w-7xl mx-auto rounded-[2rem] overflow-hidden shadow-2xl border border-white/20 group">
-            <img 
-              src={config.middleAdBanner} 
-              alt="Promotion" 
-              className="w-full h-auto object-cover transform group-hover:scale-[1.01] transition-transform duration-700" 
+            <img
+              src={config.middleAdBanner}
+              alt="Promotion"
+              className="w-full h-auto object-cover transform group-hover:scale-[1.01] transition-transform duration-700"
             />
           </div>
         </section>
       )}
 
 
-      {/* Benefits Section - Crystal Glass Style */}
-      <section className="py-20 px-10 relative overflow-hidden bg-secondery min-h-[500px] flex items-center">
-        {/* Decorative background blobs */}
-        <div className="absolute top-[-10%] left-[-5%] w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-        
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.2)] text-center transform hover:-translate-y-3 transition duration-500 group">
-            <div className="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-8 rotate-3 group-hover:rotate-12 transition-transform duration-500">
-              <FaLeaf className="text-accent text-4xl -rotate-3 group-hover:-rotate-12 transition-transform duration-500" />
+      {/* Core Values Section - Premium Animated Style */}
+      <section className="py-24 px-10 relative overflow-hidden bg-secondery">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px] animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]"></div>
+
+        <div className="max-w-7xl mx-auto w-full relative z-10">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <div className="space-y-4">
+              <h5 className="text-accent font-black tracking-[0.3em] uppercase text-xs animate-fadeIn">Our Principles</h5>
+              <h2 className="text-4xl lg:text-6xl font-bold text-white leading-none">
+                Our Core <span className="text-accent italic font-serif">Values</span>
+              </h2>
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-white">Natural Ingredients</h3>
-            <p className="text-primary/70 leading-relaxed text-lg">
-              Only the purest natural elements go into our products for your skin's health.
+            <p className="text-primary/40 text-sm max-w-xs md:text-right leading-relaxed">
+              The foundational principles that guide every formula we create and every decision we make.
             </p>
           </div>
 
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.2)] text-center transform hover:-translate-y-3 transition duration-500 group">
-            <div className="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-8 -rotate-3 group-hover:-rotate-12 transition-transform duration-500">
-              <FaShieldAlt className="text-accent text-4xl rotate-3 group-hover:rotate-12 transition-transform duration-500" />
-            </div>
-            <h3 className="text-2xl font-bold mb-4 text-white">Dermatologist Tested</h3>
-            <p className="text-primary/70 leading-relaxed text-lg">
-              Rigorous testing ensures our collection is safe and effective for all skin types.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 01 */}
+            <div className="group relative backdrop-blur-2xl bg-white/5 border border-white/10 p-10 rounded-[2.5rem] shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:bg-white/[0.08] overflow-hidden">
+              {/* Watermark Number */}
+              <div className="absolute top-4 right-8 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none group-hover:text-accent/[0.05] transition-colors duration-700">01</div>
 
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.2)] text-center transform hover:-translate-y-3 transition duration-500 group">
-            <div className="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-8 rotate-6 group-hover:rotate-0 transition-transform duration-500">
-              <FaMagic className="text-accent text-4xl -rotate-6 group-hover:rotate-0 transition-transform duration-500" />
+              <div className="relative z-10">
+                <div className="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mb-10 shadow-[0_0_40px_rgba(255,144,19,0.2)] group-hover:shadow-[0_0_60px_rgba(255,144,19,0.4)] group-hover:scale-110 transition-all duration-500">
+                  <FaLeaf className="text-accent text-4xl" />
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white group-hover:text-accent transition-colors">100% Natural</h3>
+                <p className="text-primary/60 leading-relaxed text-lg">
+                  We source only the finest botanicals and pure elements for your skin.
+                </p>
+              </div>
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-white">Cruelty Free</h3>
-            <p className="text-primary/70 leading-relaxed text-lg">
-              We never test on animals. Experience premium beauty without any compromise.
-            </p>
+
+            {/* Card 02 */}
+            <div className="group relative backdrop-blur-2xl bg-white/5 border border-white/10 p-10 rounded-[2.5rem] shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:bg-white/[0.08] overflow-hidden">
+              <div className="absolute top-4 right-8 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none group-hover:text-accent/[0.05] transition-colors duration-700">02</div>
+
+              <div className="relative z-10">
+                <div className="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mb-10 shadow-[0_0_40px_rgba(255,144,19,0.2)] group-hover:shadow-[0_0_60px_rgba(255,144,19,0.4)] group-hover:scale-110 transition-all duration-500">
+                  <FaShieldAlt className="text-accent text-4xl" />
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Science Backed</h3>
+                <p className="text-primary/60 leading-relaxed text-lg">
+                  Our products are dermatologist-tested and clinically proven for safety.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 03 */}
+            <div className="group relative backdrop-blur-2xl bg-white/5 border border-white/10 p-10 rounded-[2.5rem] shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:bg-white/[0.08] overflow-hidden">
+              <div className="absolute top-4 right-8 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none group-hover:text-accent/[0.05] transition-colors duration-700">03</div>
+
+              <div className="relative z-10">
+                <div className="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mb-10 shadow-[0_0_40px_rgba(255,144,19,0.2)] group-hover:shadow-[0_0_60px_rgba(255,144,19,0.4)] group-hover:scale-110 transition-all duration-500">
+                  <FaMagic className="text-accent text-4xl" />
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Cruelty Free</h3>
+                <p className="text-primary/60 leading-relaxed text-lg">
+                  We never test on animals, ensuring the highest ethical beauty standards.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer Info Section - Daraz Style */}
-      <section className="bg-white pt-20 pb-10 px-10 border-t border-primary/30">
-        <div className="max-w-7xl mx-auto">
+      {/* Footer Info Section - Premium Dark Style */}
+      <section className="bg-secondery pt-24 pb-12 px-10 relative overflow-hidden">
+        {/* Modern Watermark Design */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col justify-center items-center pointer-events-none select-none overflow-hidden">
+          <div className="text-[20rem] lg:text-[35rem] font-black text-white/[0.02] leading-none tracking-tighter uppercase transform -rotate-12 translate-y-20 animate-float opacity-50">
+            CBC
+          </div>
+          <div className="absolute top-20 right-0 text-9xl font-outline text-white/[0.05] rotate-90 origin-right tracking-[2em] hidden lg:block hover:text-white transition-all duration-1000">
+            BEAUTY
+          </div>
+        </div>
+
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4"></div>
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[100px] translate-y-1/4 -translate-x-1/4"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Main Footer Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-            <div className="space-y-6">
-              <h4 className="text-secondery font-bold text-xl relative inline-block">
-                Customer Care
-                <span className="absolute -bottom-2 left-0 w-12 h-1 bg-accent rounded-full"></span>
-              </h4>
-              <ul className="space-y-4 text-secondery/70">
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-accent/40 rounded-full"></span>Help Center</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-accent/40 rounded-full"></span>How to Buy</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-accent/40 rounded-full"></span>Returns & Refunds</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-accent/40 rounded-full"></span>Contact Us</Link></li>
-              </ul>
-            </div>
-
-            <div className="space-y-6">
-              <h4 className="text-secondery font-bold text-xl relative inline-block">
-                Crystal Beauty
-                <span className="absolute -bottom-2 left-0 w-12 h-1 bg-accent rounded-full"></span>
-              </h4>
-              <ul className="space-y-4 text-secondery/70">
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-accent/40 rounded-full"></span>About CBC</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-accent/40 rounded-full"></span>Careers</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-accent/40 rounded-full"></span>Privacy Policy</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 bg-accent/40 rounded-full"></span>Terms & Conditions</Link></li>
-              </ul>
-            </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
             <div className="space-y-8">
-              <div className="bg-primary/20 p-6 rounded-3xl border border-primary/50">
-                <h4 className="text-secondery font-bold text-lg mb-4">Happy Shopping</h4>
-                <p className="text-secondery/60 text-sm mb-6">Experience our app on your mobile device.</p>
-                <div className="flex flex-col gap-3">
-                  <div className="bg-secondery text-white px-5 py-2.5 rounded-xl flex items-center gap-3 hover:bg-secondery/90 transition cursor-pointer">
-                    <div className="text-2xl">🍎</div>
-                    <div className="text-xs">Download on the <br/><span className="text-sm font-bold">App Store</span></div>
-                  </div>
-                  <div className="bg-secondery text-white px-5 py-2.5 rounded-xl flex items-center gap-3 hover:bg-secondery/90 transition cursor-pointer">
-                    <div className="text-2xl">🤖</div>
-                    <div className="text-xs">GET IT ON <br/><span className="text-sm font-bold">Google Play</span></div>
-                  </div>
-                </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center font-bold text-white text-xl">C</div>
+                <h4 className="text-white font-bold text-2xl tracking-tight italic">CBC <span className="font-light not-italic opacity-60 text-sm ml-1">Beauty</span></h4>
               </div>
-            </div>
-
-            <div className="space-y-8">
-              <h4 className="text-secondery font-bold text-xl mb-6">Follow Us</h4>
+              <p className="text-primary/60 text-sm leading-relaxed max-w-xs">
+                Pure, natural, and effective skincare solutions crafted for your unique beauty journey.
+              </p>
               <div className="flex gap-4">
-                <Link to="#" className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-all duration-300 shadow-md border border-primary/20"><FaFacebook size={20}/></Link>
-                <Link to="#" className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#E4405F] hover:bg-[#E4405F] hover:text-white transition-all duration-300 shadow-md border border-primary/20"><FaInstagram size={20}/></Link>
-                <Link to="#" className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#000000] hover:bg-[#000000] hover:text-white transition-all duration-300 shadow-md border border-primary/20"><FaTwitter size={20}/></Link>
-                <Link to="#" className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#FF0000] hover:bg-[#FF0000] hover:text-white transition-all duration-300 shadow-md border border-primary/20"><FaYoutube size={20}/></Link>
+                <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"><FaFacebook size={18} /></Link>
+                <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"><FaInstagram size={18} /></Link>
+                <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"><FaTwitter size={18} /></Link>
+                <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"><FaYoutube size={18} /></Link>
               </div>
-              <div className="mt-10">
-                 <h5 className="text-secondery font-semibold mb-4">Verified by</h5>
-                 <div className="flex items-center gap-4 text-accent text-4xl opacity-70">
-                    <FaShieldAlt title="Secure" />
-                    <span className="text-sm font-bold text-secondery">PCI DSS<br/>COMPLIANT</span>
-                 </div>
+            </div>
+
+            <div className="space-y-6">
+              <h4 className="text-white font-bold text-lg tracking-wide uppercase flex items-center gap-2">
+                Customer Care
+                <span className="w-8 h-[2px] bg-accent/40"></span>
+              </h4>
+              <ul className="space-y-4 text-primary/50 text-sm">
+                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Help Center</Link></li>
+                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">How to Buy</Link></li>
+                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Returns & Refunds</Link></li>
+                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Contact Us</Link></li>
+              </ul>
+            </div>
+
+            <div className="space-y-6">
+              <h4 className="text-white font-bold text-lg tracking-wide uppercase flex items-center gap-2">
+                Quick Explore
+                <span className="w-8 h-[2px] bg-accent/40"></span>
+              </h4>
+              <ul className="space-y-4 text-primary/50 text-sm">
+                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">About CBC</Link></li>
+                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">New Arrivals</Link></li>
+                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Privacy Policy</Link></li>
+                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Terms & Conditions</Link></li>
+              </ul>
+            </div>
+
+            <div className="space-y-8">
+              <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-6 rounded-3xl">
+                <h4 className="text-white font-bold text-lg mb-2">Get the App</h4>
+                <p className="text-primary/40 text-xs mb-6">Experience our premium catalog on the go.</p>
+                <div className="flex flex-col gap-3">
+                  <div className="bg-white text-secondery px-5 py-2.5 rounded-xl flex items-center gap-3 hover:bg-accent hover:text-white transition-all cursor-pointer group">
+                    <div className="text-xl group-hover:scale-110 transition-transform">🍎</div>
+                    <div className="text-[10px] leading-tight uppercase font-medium">Download on <br /><span className="text-sm font-bold normal-case">App Store</span></div>
+                  </div>
+                  <div className="bg-white text-secondery px-5 py-2.5 rounded-xl flex items-center gap-3 hover:bg-accent hover:text-white transition-all cursor-pointer group">
+                    <div className="text-xl group-hover:scale-110 transition-transform">🤖</div>
+                    <div className="text-[10px] leading-tight uppercase font-medium">Get it on <br /><span className="text-sm font-bold normal-case">Google Play</span></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Payment Methods - High-end Strip */}
-          <div className="mt-20 bg-primary/40 backdrop-blur-sm border border-primary/50 rounded-[2rem] p-8 flex flex-wrap items-center justify-between gap-8">
-            <div className="flex items-center gap-6">
-              <h4 className="text-secondery/60 text-xl font-bold tracking-tight">Payment Methods</h4>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-8 bg-[#1a1f71] rounded flex items-center justify-center text-white text-2xl shadow-sm hover:scale-110 transition-transform cursor-help" title="Visa">
-                  <FaCcVisa />
+          {/* Payment and SEO Section - The part from the image */}
+          <div className="border-t border-white/10 pt-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              <div className="space-y-6">
+                <h2 className="text-white font-bold text-2xl lg:text-3xl leading-tight">
+                  Premium Skincare in Sri Lanka <br />
+                  <span className="text-accent italic font-serif">- Crystal Beauty Clear</span>
+                </h2>
+                <div className="space-y-4 text-primary/60 text-sm leading-relaxed text-justify">
+                  <p>
+                    Discover the ultimate destination for premium skincare in Sri Lanka. At Crystal Beauty Clear, we believe that everyone deserves to glow with confidence. Our collection is meticulously curated with 100% natural ingredients, ensuring your skin receives the purest care it deserves.
+                  </p>
+                  <p>
+                    Whether you're looking for hydrating serums, rejuvenating creams, or gentle cleansers, we have the perfect solution for all skin types. We prioritize quality and safety above all else. Every product is dermatologist-tested and proven to deliver results.
+                  </p>
                 </div>
-                <div className="w-12 h-8 bg-[#eb001b] rounded flex items-center justify-center text-white text-2xl shadow-sm hover:scale-110 transition-transform cursor-help" title="Mastercard">
-                  <FaCcMastercard />
-                </div>
-                <div className="w-12 h-8 bg-[#007bc1] rounded flex items-center justify-center text-white text-2xl shadow-sm hover:scale-110 transition-transform cursor-help" title="American Express">
-                  <FaCcAmex />
-                </div>
-              </div>
-            </div>
-            
-            <div className="px-6 py-3 border-2 border-accent/20 rounded-xl text-accent text-sm font-black tracking-widest bg-white/50 shadow-sm hover:bg-accent hover:text-white transition-all cursor-pointer uppercase">
-              Cash on Delivery Available
-            </div>
-          </div>
 
-          {/* SEO / About Text Section */}
-          <div className="mt-16 text-secondery/60 text-sm leading-relaxed max-w-5xl">
-            <h2 className="text-secondery font-bold text-lg mb-4">Premium Skincare in Sri Lanka - Crystal Beauty Clear</h2>
-            <p className="mb-4">
-              Discover the ultimate destination for premium skincare in Sri Lanka. At Crystal Beauty Clear, we believe that everyone deserves to glow with confidence. Our collection is meticulously curated with 100% natural ingredients, ensuring your skin receives the purest care it deserves. Whether you're looking for hydrating serums, rejuvenating creams, or gentle cleansers, we have the perfect solution for all skin types.
-            </p>
-            <p className="mb-4">
-              Why choose Crystal Beauty Clear? We prioritize quality and safety above all else. Every product in our catalog is dermatologist-tested and proven to deliver results. We are proud to be a 100% cruelty-free brand, because we believe beauty should never come at the cost of our animal friends. Our commitment to excellence has made us one of the fastest-growing beauty brands in the region.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">
-              <div>
-                <h5 className="font-bold text-secondery mb-2">TOP CATEGORIES</h5>
-                <ul className="space-y-1">
-                  <li>Facial Care</li>
-                  <li>Body Lotions</li>
-                  <li>Night Creams</li>
-                  <li>Sun Protection</li>
-                </ul>
+                <div className="flex items-center gap-6 pt-4">
+                  <div className="flex gap-3 text-white/40 text-3xl">
+                    <FaCcVisa className="hover:text-white transition-colors" />
+                    <FaCcMastercard className="hover:text-white transition-colors" />
+                    <FaCcAmex className="hover:text-white transition-colors" />
+                  </div>
+                  <div className="h-8 w-[1px] bg-white/10"></div>
+                  <div className="text-accent text-xs font-black tracking-[0.2em] uppercase px-4 py-2 bg-accent/10 rounded-lg">
+                    Cash on Delivery
+                  </div>
+                </div>
               </div>
-              <div>
-                <h5 className="font-bold text-secondery mb-2">TRENDING</h5>
-                <ul className="space-y-1">
-                  <li>Vitamin C Serum</li>
-                  <li>Aloe Vera Gel</li>
-                  <li>Glow Boosters</li>
-                  <li>Clay Masks</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-bold text-secondery mb-2">QUICK LINKS</h5>
-                <ul className="space-y-1">
-                  <li>Shop All</li>
-                  <li>New Arrivals</li>
-                  <li>Best Sellers</li>
-                  <li>Gift Cards</li>
-                </ul>
-              </div>
-              <div>
-                 <h5 className="font-bold text-secondery mb-2">INTERNATIONAL</h5>
-                 <div className="flex gap-2 opacity-50">
-                    <span title="Sri Lanka">🇱🇰</span>
-                    <span title="India">🇮🇳</span>
-                    <span title="Dubai">🇦🇪</span>
-                 </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+                <div className="space-y-4">
+                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">Categories</h5>
+                  <ul className="space-y-2 text-primary/60 text-xs">
+                    <li className="hover:text-accent transition-colors cursor-pointer">Facial Care</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">Body Lotions</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">Night Creams</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">Sun Protection</li>
+                  </ul>
+                </div>
+                <div className="space-y-4">
+                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">Trending</h5>
+                  <ul className="space-y-2 text-primary/60 text-xs">
+                    <li className="hover:text-accent transition-colors cursor-pointer">Vitamin C Serum</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">Aloe Vera Gel</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">Glow Boosters</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">Clay Masks</li>
+                  </ul>
+                </div>
+                <div className="space-y-4">
+                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">Links</h5>
+                  <ul className="space-y-2 text-primary/60 text-xs">
+                    <li className="hover:text-accent transition-colors cursor-pointer">Shop All</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">New Arrivals</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">Best Sellers</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">Gift Cards</li>
+                  </ul>
+                </div>
+                <div className="space-y-4">
+                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">Global</h5>
+                  <div className="flex gap-3 text-lg opacity-80">
+                    <span title="Sri Lanka" className="hover:scale-125 transition-transform cursor-help">🇱🇰</span>
+                    <span title="India" className="hover:scale-125 transition-transform cursor-help">🇮🇳</span>
+                    <span title="Dubai" className="hover:scale-125 transition-transform cursor-help">🇦🇪</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div className="mt-16 pt-8 border-t border-primary/20 flex justify-between items-center text-secondery/50 text-xs">
-            <p>© Crystal Beauty Clear 2026. All Rights Reserved.</p>
-            <div className="flex gap-6">
-               <Link to="#" className="hover:text-accent transition">Privacy Policy</Link>
-               <Link to="#" className="hover:text-accent transition">Terms of Service</Link>
+
+            {/* Copyright Strip */}
+            <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-primary/30 text-[10px] font-medium tracking-wider uppercase">
+              <p>© 2026 Crystal Beauty Clear. All Rights Reserved.</p>
+              <div className="flex gap-8">
+                <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+                <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
+                <Link to="#" className="hover:text-white transition-colors">Cookies</Link>
+              </div>
             </div>
           </div>
         </div>
