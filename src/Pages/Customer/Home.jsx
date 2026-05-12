@@ -3,7 +3,23 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ProductCard from "../../Components/ProductCard";
 import Loader from "../../Components/Loader";
-import { FaArrowRight, FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaLinkedin, FaShieldAlt, FaLeaf, FaMagic, FaTruck, FaUndo, FaHeadset, FaCcVisa, FaCcMastercard, FaCcAmex } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaYoutube,
+  FaLinkedin,
+  FaShieldAlt,
+  FaLeaf,
+  FaMagic,
+  FaTruck,
+  FaUndo,
+  FaHeadset,
+  FaCcVisa,
+  FaCcMastercard,
+  FaCcAmex,
+} from "react-icons/fa";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -38,10 +54,15 @@ const Home = () => {
         {/* Hero Section Content */}
         <div className="z-20 max-w-3xl text-white relative">
           <div className="space-y-2 mb-4">
-            <h2 className="text-accent font-bold tracking-[0.3em] uppercase text-xs lg:text-sm animate-fadeIn">Premium Skincare</h2>
+            <h2 className="text-accent font-bold tracking-[0.3em] uppercase text-xs lg:text-sm animate-fadeIn">
+              Premium Skincare
+            </h2>
             <h1 className="text-5xl lg:text-7xl font-bold leading-[1] animate-fadeIn">
               Crystal <br />
-              <span className="text-accent italic drop-shadow-[0_0_20px_rgba(255,144,19,0.5)]">Beauty</span> <br />
+              <span className="text-accent italic drop-shadow-[0_0_20px_rgba(255,144,19,0.5)]">
+                Beauty
+              </span>{" "}
+              <br />
               Clear
             </h1>
           </div>
@@ -81,16 +102,22 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="space-y-4">
-              <h5 className="text-accent font-black tracking-[0.3em] uppercase text-xs">Our Collection</h5>
+              <h5 className="text-accent font-black tracking-[0.3em] uppercase text-xs">
+                Our Collection
+              </h5>
               <h2 className="text-4xl lg:text-5xl font-bold text-secondery">
-                Featured <span className="text-accent italic font-serif">Products</span>
+                Featured{" "}
+                <span className="text-accent italic font-serif">Products</span>
               </h2>
             </div>
             <Link
               to="/product"
               className="group text-secondery font-bold flex items-center gap-2 hover:text-accent transition-colors"
             >
-              Explore All <div className="w-8 h-8 rounded-full bg-secondery group-hover:bg-accent flex items-center justify-center text-white transition-all"><FaArrowRight size={12} /></div>
+              Explore All{" "}
+              <div className="w-8 h-8 rounded-full bg-secondery group-hover:bg-accent flex items-center justify-center text-white transition-all">
+                <FaArrowRight size={12} />
+              </div>
             </Link>
           </div>
 
@@ -119,7 +146,6 @@ const Home = () => {
         </section>
       )}
 
-
       {/* Core Values Section - Premium Animated Style */}
       <section className="py-24 px-10 relative overflow-hidden bg-secondery">
         {/* Decorative background elements */}
@@ -130,13 +156,17 @@ const Home = () => {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
             <div className="space-y-4">
-              <h5 className="text-accent font-black tracking-[0.3em] uppercase text-xs animate-fadeIn">Our Principles</h5>
+              <h5 className="text-accent font-black tracking-[0.3em] uppercase text-xs animate-fadeIn">
+                Our Principles
+              </h5>
               <h2 className="text-4xl lg:text-6xl font-bold text-white leading-none">
-                Our Core <span className="text-accent italic font-serif">Values</span>
+                Our Core{" "}
+                <span className="text-accent italic font-serif">Values</span>
               </h2>
             </div>
             <p className="text-primary/40 text-sm max-w-xs md:text-right leading-relaxed">
-              The foundational principles that guide every formula we create and every decision we make.
+              The foundational principles that guide every formula we create and
+              every decision we make.
             </p>
           </div>
 
@@ -144,45 +174,60 @@ const Home = () => {
             {/* Card 01 */}
             <div className="group relative backdrop-blur-2xl bg-white/5 border border-white/10 p-10 rounded-[2.5rem] shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:bg-white/[0.08] overflow-hidden">
               {/* Watermark Number */}
-              <div className="absolute top-4 right-8 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none group-hover:text-accent/[0.05] transition-colors duration-700">01</div>
+              <div className="absolute top-4 right-8 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none group-hover:text-accent/[0.05] transition-colors duration-700">
+                01
+              </div>
 
               <div className="relative z-10">
                 <div className="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mb-10 shadow-[0_0_40px_rgba(255,144,19,0.2)] group-hover:shadow-[0_0_60px_rgba(255,144,19,0.4)] group-hover:scale-110 transition-all duration-500">
                   <FaLeaf className="text-accent text-4xl" />
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white group-hover:text-accent transition-colors">100% Natural</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white group-hover:text-accent transition-colors">
+                  100% Natural
+                </h3>
                 <p className="text-primary/60 leading-relaxed text-lg">
-                  We source only the finest botanicals and pure elements for your skin.
+                  We source only the finest botanicals and pure elements for
+                  your skin.
                 </p>
               </div>
             </div>
 
             {/* Card 02 */}
             <div className="group relative backdrop-blur-2xl bg-white/5 border border-white/10 p-10 rounded-[2.5rem] shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:bg-white/[0.08] overflow-hidden">
-              <div className="absolute top-4 right-8 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none group-hover:text-accent/[0.05] transition-colors duration-700">02</div>
+              <div className="absolute top-4 right-8 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none group-hover:text-accent/[0.05] transition-colors duration-700">
+                02
+              </div>
 
               <div className="relative z-10">
                 <div className="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mb-10 shadow-[0_0_40px_rgba(255,144,19,0.2)] group-hover:shadow-[0_0_60px_rgba(255,144,19,0.4)] group-hover:scale-110 transition-all duration-500">
                   <FaShieldAlt className="text-accent text-4xl" />
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Science Backed</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white group-hover:text-accent transition-colors">
+                  Science Backed
+                </h3>
                 <p className="text-primary/60 leading-relaxed text-lg">
-                  Our products are dermatologist-tested and clinically proven for safety.
+                  Our products are dermatologist-tested and clinically proven
+                  for safety.
                 </p>
               </div>
             </div>
 
             {/* Card 03 */}
             <div className="group relative backdrop-blur-2xl bg-white/5 border border-white/10 p-10 rounded-[2.5rem] shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:bg-white/[0.08] overflow-hidden">
-              <div className="absolute top-4 right-8 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none group-hover:text-accent/[0.05] transition-colors duration-700">03</div>
+              <div className="absolute top-4 right-8 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none group-hover:text-accent/[0.05] transition-colors duration-700">
+                03
+              </div>
 
               <div className="relative z-10">
                 <div className="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mb-10 shadow-[0_0_40px_rgba(255,144,19,0.2)] group-hover:shadow-[0_0_60px_rgba(255,144,19,0.4)] group-hover:scale-110 transition-all duration-500">
                   <FaMagic className="text-accent text-4xl" />
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Cruelty Free</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white group-hover:text-accent transition-colors">
+                  Cruelty Free
+                </h3>
                 <p className="text-primary/60 leading-relaxed text-lg">
-                  We never test on animals, ensuring the highest ethical beauty standards.
+                  We never test on animals, ensuring the highest ethical beauty
+                  standards.
                 </p>
               </div>
             </div>
@@ -211,29 +256,65 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
             <div className="space-y-8">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center font-bold text-white text-xl">C</div>
-                <h4 className="text-white font-bold text-2xl tracking-tight italic">CBC <span className="font-light not-italic opacity-60 text-sm ml-1">Beauty</span></h4>
+                <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center font-bold text-white text-xl">
+                  C
+                </div>
+                <h4 className="text-white font-bold text-2xl tracking-tight italic">
+                  CBC{" "}
+                  <span className="font-light not-italic opacity-60 text-sm ml-1">
+                    Beauty
+                  </span>
+                </h4>
               </div>
               <p className="text-primary/60 text-sm leading-relaxed max-w-xs">
-                Pure, natural, and effective skincare solutions crafted for your unique beauty journey.
+                Pure, natural, and effective skincare solutions crafted for your
+                unique beauty journey.
               </p>
               <div className="flex gap-4">
-  <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300" aria-label="Facebook">
-    <span className="text-[#1877F2]"><FaFacebook size={18} /></span>
-  </Link>
+                <Link
+                  to="#"
+                  className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:shadow-[0_8px_20px_rgba(24,119,242,0.4)] transition-all duration-300 transform hover:scale-110"
+                >
+                  <span className="text-[#1877F2]">
+                    <FaFacebook size={20} />
+                  </span>
+                </Link>
 
-  <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300" aria-label="Instagram">
-    <span className="bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] bg-clip-text text-transparent"><FaInstagram size={18} /></span>
-  </Link>
+                <Link
+                  to="#"
+                  className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:shadow-[0_8px_20px_rgba(245,133,41,0.4)] transition-all duration-300 transform hover:scale-110"
+                >
+                  <span
+                    style={{
+                      background:
+                        "linear-gradient(to top right, #f58529, #dd2a7b, #8134af)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    <FaInstagram size={20} />
+                  </span>
+                </Link>
 
-  <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300" aria-label="Twitter">
-    <span className="text-[#1DA1F2]"><FaTwitter size={18} /></span>
-  </Link>
+                <Link
+                  to="#"
+                  className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:shadow-[0_8px_20px_rgba(29,161,242,0.4)] transition-all duration-300 transform hover:scale-110"
+                >
+                  <span className="text-[#1DA1F2]">
+                    <FaTwitter size={20} />
+                  </span>
+                </Link>
 
-  <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300" aria-label="YouTube">
-    <span className="text-[#FF0000]"><FaYoutube size={18} /></span>
-  </Link>
-</div>
+                <Link
+                  to="#"
+                  className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:shadow-[0_8px_20px_rgba(255,0,0,0.4)] transition-all duration-300 transform hover:scale-110"
+                >
+                  <span className="text-[#FF0000]">
+                    <FaYoutube size={20} />
+                  </span>
+                </Link>
+              </div>
             </div>
 
             <div className="space-y-6">
@@ -242,10 +323,38 @@ const Home = () => {
                 <span className="w-8 h-[2px] bg-accent/40"></span>
               </h4>
               <ul className="space-y-4 text-primary/50 text-sm">
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Help Center</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">How to Buy</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Returns & Refunds</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Contact Us</Link></li>
+                <li>
+                  <Link
+                    to="#"
+                    className="hover:text-accent transition-colors flex items-center gap-2"
+                  >
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="hover:text-accent transition-colors flex items-center gap-2"
+                  >
+                    How to Buy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="hover:text-accent transition-colors flex items-center gap-2"
+                  >
+                    Returns & Refunds
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="hover:text-accent transition-colors flex items-center gap-2"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -255,38 +364,70 @@ const Home = () => {
                 <span className="w-8 h-[2px] bg-accent/40"></span>
               </h4>
               <ul className="space-y-4 text-primary/50 text-sm">
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">About CBC</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">New Arrivals</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Privacy Policy</Link></li>
-                <li><Link to="#" className="hover:text-accent transition-colors flex items-center gap-2">Terms & Conditions</Link></li>
+                <li>
+                  <Link
+                    to="#"
+                    className="hover:text-accent transition-colors flex items-center gap-2"
+                  >
+                    About CBC
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="hover:text-accent transition-colors flex items-center gap-2"
+                  >
+                    New Arrivals
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="hover:text-accent transition-colors flex items-center gap-2"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="hover:text-accent transition-colors flex items-center gap-2"
+                  >
+                    Terms & Conditions
+                  </Link>
+                </li>
               </ul>
             </div>
 
             <div className="space-y-8">
               <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-6 rounded-3xl">
-                <h4 className="text-white font-bold text-lg mb-2">Get the App</h4>
-                <p className="text-primary/40 text-xs mb-6">Experience our premium catalog on the go.</p>
-               <div className="flex flex-col gap-3">
-                    <a href="#" className="inline-block">
-                      <div className="bg-white px-4 py-3 rounded-xl hover:bg-accent transition-all cursor-pointer flex items-center justify-center">
-                        <img
-                          src="\public\appleStore.JPG"
-                          alt="Download on the App Store"
-                          className="h-12 w-auto max-w-[160px] object-contain"
-                        />
-                      </div>
-                    </a>
+                <h4 className="text-white font-bold text-lg mb-2">
+                  Get the App
+                </h4>
+                <p className="text-primary/40 text-xs mb-6">
+                  Experience our premium catalog on the go.
+                </p>
+                <div className="flex flex-col gap-3">
+                  <a href="#" className="inline-block">
+                    <div className="bg-white px-4 py-3 rounded-xl hover:bg-accent transition-all cursor-pointer flex items-center justify-center">
+                      <img
+                        src="\public\appleStore.JPG"
+                        alt="Download on the App Store"
+                        className="h-12 w-auto max-w-[160px] object-contain"
+                      />
+                    </div>
+                  </a>
 
-                    <a href="#" className="inline-block">
-                      <div className="bg-white px-4 py-3 rounded-xl hover:bg-accent transition-all cursor-pointer flex items-center justify-center">
-                        <img
-                          src="\public\GooglePlay.JPG"
-                          alt="Get it on Google Play"
-                          className="h-12 w-auto max-w-[160px] object-contain"
-                        />
-                      </div>
-                    </a>
-                  </div>
+                  <a href="#" className="inline-block">
+                    <div className="bg-white px-4 py-3 rounded-xl hover:bg-accent transition-all cursor-pointer flex items-center justify-center">
+                      <img
+                        src="\public\GooglePlay.JPG"
+                        alt="Get it on Google Play"
+                        className="h-12 w-auto max-w-[160px] object-contain"
+                      />
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -297,14 +438,24 @@ const Home = () => {
               <div className="space-y-6">
                 <h2 className="text-white font-bold text-2xl lg:text-3xl leading-tight">
                   Premium Skincare in Sri Lanka <br />
-                  <span className="text-accent italic font-serif">- Crystal Beauty Clear</span>
+                  <span className="text-accent italic font-serif">
+                    - Crystal Beauty Clear
+                  </span>
                 </h2>
                 <div className="space-y-4 text-primary/60 text-sm leading-relaxed text-justify">
                   <p>
-                    Discover the ultimate destination for premium skincare in Sri Lanka. At Crystal Beauty Clear, we believe that everyone deserves to glow with confidence. Our collection is meticulously curated with 100% natural ingredients, ensuring your skin receives the purest care it deserves.
+                    Discover the ultimate destination for premium skincare in
+                    Sri Lanka. At Crystal Beauty Clear, we believe that everyone
+                    deserves to glow with confidence. Our collection is
+                    meticulously curated with 100% natural ingredients, ensuring
+                    your skin receives the purest care it deserves.
                   </p>
                   <p>
-                    Whether you're looking for hydrating serums, rejuvenating creams, or gentle cleansers, we have the perfect solution for all skin types. We prioritize quality and safety above all else. Every product is dermatologist-tested and proven to deliver results.
+                    Whether you're looking for hydrating serums, rejuvenating
+                    creams, or gentle cleansers, we have the perfect solution
+                    for all skin types. We prioritize quality and safety above
+                    all else. Every product is dermatologist-tested and proven
+                    to deliver results.
                   </p>
                 </div>
 
@@ -323,38 +474,85 @@ const Home = () => {
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
                 <div className="space-y-4">
-                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">Categories</h5>
+                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">
+                    Categories
+                  </h5>
                   <ul className="space-y-2 text-primary/60 text-xs">
-                    <li className="hover:text-accent transition-colors cursor-pointer">Facial Care</li>
-                    <li className="hover:text-accent transition-colors cursor-pointer">Body Lotions</li>
-                    <li className="hover:text-accent transition-colors cursor-pointer">Night Creams</li>
-                    <li className="hover:text-accent transition-colors cursor-pointer">Sun Protection</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Facial Care
+                    </li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Body Lotions
+                    </li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Night Creams
+                    </li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Sun Protection
+                    </li>
                   </ul>
                 </div>
                 <div className="space-y-4">
-                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">Trending</h5>
+                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">
+                    Trending
+                  </h5>
                   <ul className="space-y-2 text-primary/60 text-xs">
-                    <li className="hover:text-accent transition-colors cursor-pointer">Vitamin C Serum</li>
-                    <li className="hover:text-accent transition-colors cursor-pointer">Aloe Vera Gel</li>
-                    <li className="hover:text-accent transition-colors cursor-pointer">Glow Boosters</li>
-                    <li className="hover:text-accent transition-colors cursor-pointer">Clay Masks</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Vitamin C Serum
+                    </li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Aloe Vera Gel
+                    </li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Glow Boosters
+                    </li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Clay Masks
+                    </li>
                   </ul>
                 </div>
                 <div className="space-y-4">
-                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">Links</h5>
+                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">
+                    Links
+                  </h5>
                   <ul className="space-y-2 text-primary/60 text-xs">
-                    <li className="hover:text-accent transition-colors cursor-pointer">Shop All</li>
-                    <li className="hover:text-accent transition-colors cursor-pointer">New Arrivals</li>
-                    <li className="hover:text-accent transition-colors cursor-pointer">Best Sellers</li>
-                    <li className="hover:text-accent transition-colors cursor-pointer">Gift Cards</li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Shop All
+                    </li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      New Arrivals
+                    </li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Best Sellers
+                    </li>
+                    <li className="hover:text-accent transition-colors cursor-pointer">
+                      Gift Cards
+                    </li>
                   </ul>
                 </div>
                 <div className="space-y-4">
-                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">Global</h5>
+                  <h5 className="font-black text-[10px] tracking-[0.2em] text-white/40 uppercase">
+                    Global
+                  </h5>
                   <div className="flex gap-3 text-lg opacity-80">
-                    <span title="Sri Lanka" className="hover:scale-125 transition-transform cursor-help">🇱🇰</span>
-                    <span title="India" className="hover:scale-125 transition-transform cursor-help">🇮🇳</span>
-                    <span title="Dubai" className="hover:scale-125 transition-transform cursor-help">🇦🇪</span>
+                    <span
+                      title="Sri Lanka"
+                      className="hover:scale-125 transition-transform cursor-help"
+                    >
+                      🇱🇰
+                    </span>
+                    <span
+                      title="India"
+                      className="hover:scale-125 transition-transform cursor-help"
+                    >
+                      🇮🇳
+                    </span>
+                    <span
+                      title="Dubai"
+                      className="hover:scale-125 transition-transform cursor-help"
+                    >
+                      🇦🇪
+                    </span>
                   </div>
                 </div>
               </div>
@@ -364,9 +562,15 @@ const Home = () => {
             <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-primary/30 text-[10px] font-medium tracking-wider uppercase">
               <p>© 2026 Crystal Beauty Clear. All Rights Reserved.</p>
               <div className="flex gap-8">
-                <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
-                <Link to="#" className="hover:text-white transition-colors">Cookies</Link>
+                <Link to="#" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link to="#" className="hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+                <Link to="#" className="hover:text-white transition-colors">
+                  Cookies
+                </Link>
               </div>
             </div>
           </div>

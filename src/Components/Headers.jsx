@@ -124,7 +124,7 @@ const Headers = () => {
           <Link to="/" className="h-full flex items-center">
             <img
               src="/logo.png"
-              className="h-[50px] w-auto object-contain transition-transform hover:scale-105"
+              className="h-[70px] w-auto object-contain transition-transform hover:scale-105"
             />
           </Link>
 
