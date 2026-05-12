@@ -411,7 +411,7 @@ const Home = () => {
                   <a href="#" className="inline-block">
                     <div className="bg-white px-4 py-3 rounded-xl hover:bg-accent transition-all cursor-pointer flex items-center justify-center">
                       <img
-                        src="\public\appleStore.JPG"
+                        src="/appleStore.JPG"
                         alt="Download on the App Store"
                         className="h-12 w-auto max-w-[160px] object-contain"
                       />
@@ -421,7 +421,7 @@ const Home = () => {
                   <a href="#" className="inline-block">
                     <div className="bg-white px-4 py-3 rounded-xl hover:bg-accent transition-all cursor-pointer flex items-center justify-center">
                       <img
-                        src="\public\GooglePlay.JPG"
+                        src="/GooglePlay.JPG"
                         alt="Get it on Google Play"
                         className="h-12 w-auto max-w-[160px] object-contain"
                       />
