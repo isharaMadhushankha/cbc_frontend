@@ -218,11 +218,22 @@ const Home = () => {
                 Pure, natural, and effective skincare solutions crafted for your unique beauty journey.
               </p>
               <div className="flex gap-4">
-                <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"><FaFacebook size={18} /></Link>
-                <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"><FaInstagram size={18} /></Link>
-                <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"><FaTwitter size={18} /></Link>
-                <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"><FaYoutube size={18} /></Link>
-              </div>
+  <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300" aria-label="Facebook">
+    <span className="text-[#1877F2]"><FaFacebook size={18} /></span>
+  </Link>
+
+  <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300" aria-label="Instagram">
+    <span className="bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] bg-clip-text text-transparent"><FaInstagram size={18} /></span>
+  </Link>
+
+  <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300" aria-label="Twitter">
+    <span className="text-[#1DA1F2]"><FaTwitter size={18} /></span>
+  </Link>
+
+  <Link to="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300" aria-label="YouTube">
+    <span className="text-[#FF0000]"><FaYoutube size={18} /></span>
+  </Link>
+</div>
             </div>
 
             <div className="space-y-6">
@@ -255,16 +266,27 @@ const Home = () => {
               <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-6 rounded-3xl">
                 <h4 className="text-white font-bold text-lg mb-2">Get the App</h4>
                 <p className="text-primary/40 text-xs mb-6">Experience our premium catalog on the go.</p>
-                <div className="flex flex-col gap-3">
-                  <div className="bg-white text-secondery px-5 py-2.5 rounded-xl flex items-center gap-3 hover:bg-accent hover:text-white transition-all cursor-pointer group">
-                    <div className="text-xl group-hover:scale-110 transition-transform">🍎</div>
-                    <div className="text-[10px] leading-tight uppercase font-medium">Download on <br /><span className="text-sm font-bold normal-case">App Store</span></div>
+               <div className="flex flex-col gap-3">
+                    <a href="#" className="inline-block">
+                      <div className="bg-white px-4 py-3 rounded-xl hover:bg-accent transition-all cursor-pointer flex items-center justify-center">
+                        <img
+                          src="\public\appleStore.JPG"
+                          alt="Download on the App Store"
+                          className="h-12 w-auto max-w-[160px] object-contain"
+                        />
+                      </div>
+                    </a>
+
+                    <a href="#" className="inline-block">
+                      <div className="bg-white px-4 py-3 rounded-xl hover:bg-accent transition-all cursor-pointer flex items-center justify-center">
+                        <img
+                          src="\public\GooglePlay.JPG"
+                          alt="Get it on Google Play"
+                          className="h-12 w-auto max-w-[160px] object-contain"
+                        />
+                      </div>
+                    </a>
                   </div>
-                  <div className="bg-white text-secondery px-5 py-2.5 rounded-xl flex items-center gap-3 hover:bg-accent hover:text-white transition-all cursor-pointer group">
-                    <div className="text-xl group-hover:scale-110 transition-transform">🤖</div>
-                    <div className="text-[10px] leading-tight uppercase font-medium">Get it on <br /><span className="text-sm font-bold normal-case">Google Play</span></div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
