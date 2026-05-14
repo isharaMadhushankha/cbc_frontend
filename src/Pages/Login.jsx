@@ -10,8 +10,25 @@ const Login = () => {
   const navigate = useNavigate();
   const googleLogin = useGoogleLogin({
   onSuccess: (tokenResponse) => {
-    console.log(tokenResponse);
-  }
+    axios.post(
+      import.meta.env.VITE_API_URL + "/api/User/googleLogin",
+      {
+        token: tokenResponse.access_token,
+      }
+    ).then((res) => {
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.User));
+      
+      if(res.data.User.role=="admin"){
+        navigate("/admin")
+      }else{
+        navigate("/");
+      }
+      toast.success("Login successfull");
+    }).catch((err) => {
+      toast.error("Login failed.please check your credentials");
+    })
+}
 });
 
   async function login() {
