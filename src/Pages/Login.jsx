@@ -2,11 +2,17 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate, Link } from 'react-router-dom';
+import { useGoogleLogin } from '@react-oauth/google';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const navigate = useNavigate();
+  const googleLogin = useGoogleLogin({
+  onSuccess: (tokenResponse) => {
+    console.log(tokenResponse);
+  }
+});
 
   async function login() {
     try{
@@ -37,6 +43,11 @@ const Login = () => {
     }
     
   }
+
+
+  
+
+
 
   return (
     <div className="h-screen w-full bg-[url('bg3.jpg')] bg-cover bg-center flex ">
@@ -78,6 +89,13 @@ const Login = () => {
             className="w-[350px] h-[45px] bg-accent text-white font-semibold rounded-lg shadow-md hover:bg-accent/90 transition active:scale-95"
           >
             Login
+          </button>
+
+           <button
+            onClick={googleLogin}
+            className="w-[350px] h-[45px] bg-accent text-white font-semibold rounded-lg shadow-md hover:bg-accent/90 transition active:scale-95"
+          >
+           Google Login
           </button>
 
           <p className="text-white/70 text-sm mt-2">

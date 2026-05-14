@@ -40,7 +40,13 @@ const ProductPage = () => {
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/5 rounded-full blur-[100px]"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-
+        {/* Page Header */}
+        <div className="mb-2">
+          <h1 className="text-sm lg:text-base font-bold text-white leading-none">
+            Crystal <span className="text-accent italic font-serif">Collection</span>
+          </h1>
+          <div className="w-8 h-0.5 bg-accent rounded-full mt-1"></div>
+        </div>
 
         {isloading ? (
           <Loader />
