@@ -1,3 +1,4 @@
+
 # 💄✨ CBC Cosmetics — Full-Stack E-Commerce Platform
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
@@ -85,6 +86,10 @@
 ---
 
 ## 📁 Project Structure
+
+
+```
+
 CBC Cosmetics/
 ├── cbc_backend/
 │   ├── app.js            # Express application entry context
@@ -99,6 +104,7 @@ CBC Cosmetics/
 │   └── main.jsx      # Client mount file invoking configuration blocks
 └── vite.config.js    # Vite compilation rules
 
+```
 
 ---
 
@@ -113,30 +119,52 @@ CBC Cosmetics/
 ```bash
 cd cbc_backend
 npm install
-Create a .env file in the root of the cbc_backend directory and insert your credentials:
 
-Code snippet
+```
+
+Create a `.env` file in the root of the `cbc_backend` directory and insert your credentials:
+
+```env
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 PORT=5000
+
+```
+
 Launch the development server:
 
-Bash
+```bash
 npm start
-2. Client Configuration
-Bash
+
+```
+
+### 2. Client Configuration
+
+```bash
 cd ../cbc_frontend
 npm install
-Create a .env file in the root of the cbc_frontend directory:
 
-Code snippet
+```
+
+Create a `.env` file in the root of the `cbc_frontend` directory:
+
+```env
 VITE_BACKEND_URL=http://localhost:5000
 VITE_SUPABASE_URL=your_supabase_url_endpoint
 VITE_SUPABASE_ANON_KEY=your_supabase_anonymous_public_key
 VITE_GOOGLE_CLIENT_ID=your_google_cloud_oauth_client_id
+
+```
+
 Launch the local application preview:
 
-Bash
+```bash
 npm run dev
-📄 License
+
+```
+
+---
+
+## 📄 License
+
 Distributed under the MIT License. Built strictly as an academic/personal project reference.
