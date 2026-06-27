@@ -10,7 +10,7 @@
 ---
 
 ## 🚀 Live Demo
-🌐 [Launch Live Application](https://www.linkedin.com/posts/madhushankha-ishara_mern-reactjs-nodejs-activity-7460024543831695360-oPUA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD9sE14B2jNy3SWgFVdvdqlIazOWSIxri54)
+🌐 [Live Application](https://www.linkedin.com/posts/madhushankha-ishara_mern-reactjs-nodejs-activity-7460024543831695360-oPUA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD9sE14B2jNy3SWgFVdvdqlIazOWSIxri54)
 
 ---
 
